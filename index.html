@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio Fotografi</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #F5EFE6;
+      color: #fff;
+    }
+    header {
+      background: #34656D;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      color: #ccc;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    .hero {
+      background: url("Desain\ tanpa\ judul.jpg") no-repeat center/cover;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-family:'Times New Roman', Times, serif;
+      color:#34656D;
+    }
+    .hero h2 {
+      font-size: 3rem;
+      color: ;
+      background: rgba(208, 208, 208, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .about, .gallery, .contact {
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .about h2, .gallery h2, .contact h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: #34656D;
+    }
+    .about p {
+      text-align: center;
+      line-height: 1.6;
+      color: #34656D;
+    }
+
+    /* ===== Tabs for gallery ===== */
+    .tabs {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .tabs button {
+      background: #222;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .tabs button:hover, .tabs button.active {
+      background: #555;
+    }
+
+    .gallery-grid {
+      display: none; /* default hidden */
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    .gallery-grid.active {
+      display: grid;
+    }
+    .gallery-grid img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .contact input, .contact textarea {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .contact button {
+      padding: 12px;
+      background: #444;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .contact button:hover {
+      background: #666;
+    }
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    /* ===== PRICE LIST ===== */
+.price {
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.price h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #34656D;
+}
+
+.price-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.price-card {
+  background: #34656D;
+  padding: 25px;
+  border-radius: 12px;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.price-card:hover {
+  transform: translateY(-5px);
+  background: #2b5259;
+}
+
+.price-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.4rem;
+}
+
+.price-tag {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.price-card ul {
+  padding-left: 18px;
+}
+
+.price-card ul li {
+  margin-bottom: 6px;
+  color: #e3e3e3;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Jarang Foto</h1>
+    <nav>
+  <a href="#about">Tentang</a>
+  <a href="#gallery">Galeri</a>
+  <a href="#pricelist">Price List</a> <!-- ADD -->
+  <a href="#contact">Kontak</a>
+</nav>
+
+  </header>
+
+  <section class="hero">
+    
+    <h2>Selamat Datang Di Galery Romy </h2>
+  
+  </section>
+
+  <section id="about" class="about">
+    <h2>Tentang Saya</h2>
+    <p>Saya seorang fotografer profesional terhadap suatu moment sakral.Ketingkatan emosional adalah nilai penting bagi saya.
+      Hargai setiap moment mu sekecil apapun itu kelak di masa depan kau akan menjadi pendongeng yang menceritakan sebuah kenyataan.</p>
+  </section>
+
+  <!-- ================== GALLERY ================== -->
+  <section id="gallery" class="gallery">
+    <h2>Galeri</h2>
+    <div class="tabs">
+      <button class="tab-btn active" data-target="wedding">Wedding</button>
+      <button class="tab-btn" data-target="engagement">Engagement</button>
+      <button class="tab-btn" data-target="graduation">Graduation</button>
+      <button Class="tab-btn" data-target="Birthday">Birthday</button>
+    </div>
+
+    <!-- Wedding -->
+    <div class="gallery-grid active" id="wedding">
+      <img src="_MG_0023.jpg" alt="">
+      <img src="_MG_9744.jpg" alt="">
+      <img src="DSC_0092.jpg" alt="">
+      <img src="DSC_0151.jpg" alt="">
+      <img src="DSC_0157.jpg" alt="">
+      <img src="DSC_0620.jpg" alt="">
+      <img src="DSC_0633.jpg" alt="">
+      <img src="RGP08201.jpg" alt="">
+      <img src="RGP08245.jpg" alt="">
+      <img src="RGP08381.jpg" alt="">
+      <img src="RGP09040.jpg" alt="">
+    </div>
+
+    <!-- Engagement -->
+    <div class="gallery-grid" id="engagement">
+      <img src="13.jpg " alt="">
+      <img src="14.jpg" alt="">
+      <img src="15.jpg" alt="">
+      <img src="16.jpg" alt="">
+      <img src="21.jpg" alt="">
+      <img src="22.jpg" alt="">
+      <img src="23.jpg" alt="">
+      <img src="24.jpg" alt="">
+      <img src="18.jpg" alt="">
+      <img src="17.jpg" alt="">
+      <img src="19.jpg" alt="">
+      <img src="20.jpg" alt="">
+      <img src="25.jpg" alt="">
+      <img src="27.jpg" alt="">
+      <img src="28.jpg" alt="">
+      <img src="26.jpg" alt="">
+    </div>
+
+    <!-- Graduation -->
+    <div class="gallery-grid" id="graduation">
+      <img src="_MG_0094.jpg" alt="">
+      <img src="_MG_0172.jpg" alt="">
+      <img src="_MG_1699.jpg" alt="">
+      <img src="_MG_1730.jpg" alt="">
+      <img src="_MG_1753.jpg" alt="">
+      <img src="_MG_1754.jpg" alt="">
+      <img src="_MG_1787.jpg" alt="">
+      <img src="_MG_1765.jpg" alt="">
+      <img src="DSC_0035.jpg" alt="">
+      <img src="DSC_0088.jpg" alt="">
+      <img src="DSC_0171.jpg" alt="">
+      <img src="DSC_0176.jpg" alt="">
+      <img src="DSC_0187.jpg" alt="">
+      <img src="DSC_0202.jpg" alt="">
+      <img src="Ka Bilqis-128.jpg" alt="">
+      <img src="Ka Bilqis-350.jpg" alt="">
+      <img src="Ka Bilqis-503.jpg" alt="">
+      <img src="Ka Bilqis-145.jpg" alt="">
+      <img src="Ka Bilqis-326.jpg" alt="">
+      <img src="Ka Bilqis-367.jpg" alt="">
+      
+    </div>
+
+ 
+      
+    </div>
+    <!-- Birthday -->
+     <div class="gallery-grid"id="Birthday">
+        <img src="1.jpg" alt="">
+        <img src="2.jpg" alt="">
+        <img src="3.jpg" alt="">
+        <img src="4.jpg" alt="">
+        <img src="5.jpg" alt="">
+        <img src="6.jpg" alt="">
+        <img src="7.jpg" alt="">
+        <img src="8.jpg" alt="">
+        <img src="9.jpg" alt="">
+        <img src="10.jpg" alt="">
+        <img src="11.jpg" alt="">
+        <img src="12.jpg" alt="">
+     </div>
+
+     <!-- ================== PRICE LIST ================== -->
+<section id="pricelist" class="price">
+  <h2>Price List</h2>
+
+  <div class="price-container">
+
+    <div class="price-card">
+      <h3>Wedding Package</h3>
+      <p class="price-tag">Rp 2.500.000</p>
+      <ul>
+        <li>Durasi 4–8 Jam</li>
+        <li>All File Edited</li>
+        <li>Foto & Video Highlights</li>
+        <li>1 Fotografer + 1 Videografer</li>
+      </ul>
+    </div>
+
+    <div class="price-card">
+      <h3>Engagement Package</h3>
+      <p class="price-tag">Rp 700.000</p>
+      <ul>
+        <li>Durasi 3-4 Jam</li>
+        <li>100 Foto Edit </li>
+        <li>Semua File Original</li>
+        <li>1 Fotografer</li>
+      </ul>
+    </div>
+
+    <div class="price-card">
+      <h3>Graduation Package</h3>
+      <p class="price-tag">Rp 500.000</p>
+      <ul>
+        <li>Durasi 1 Jam</li>
+        <li>100 Foto Edit </li>
+        <li>Semua File Original</li>
+        <li>1 Fotografer</li>
+      </ul>
+    </div>
+
+    <div class="price-card">
+      <h3>Birthday Package</h3>
+      <p class="price-tag">Rp 700.000</p>
+      <ul>
+        <li>Durasi 3-4 Jam</li>
+        <li>100 Foto Edit </li>
+        <li>Semua File Original</li>
+        <li>1 Fotografer</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+  </section>
+
+  <!-- ================== CONTACT ================== -->
+  <section id="contact" class="contact">
+    <h2>Kontak</h2>
+    <form>
+      <input type="text" placeholder="Nama Anda" required>
+      <input type="email" placeholder="Email Anda" required>
+      <textarea rows="5" placeholder="Pesan..." required></textarea>
+      <button type="submit">Kirim</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 Romy Photography | Semua Hak Dilindungi
+  </footer>
+
+  <script>
+    // Tab switching
+    const buttons = document.querySelectorAll(".tab-btn");
+    const galleries = document.querySelectorAll(".gallery-grid");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        galleries.forEach(g => g.classList.remove("active"));
+
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.target).classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>
